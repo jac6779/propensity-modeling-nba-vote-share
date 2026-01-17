@@ -106,7 +106,6 @@ REPOSITORY STRUCTURE
 01_All_NBA_Vote_Share_EDA.ipynb
 02_All_NBA_Vote_Share_Preprocessing.ipynb
 03_All_NBA_Vote_Share_Modeling.ipynb
-README.txt
 
 PORTFOLIO CONTEXT
 -----------------
