@@ -1,118 +1,143 @@
-PREDICTING NBA AWARDS VOTING SHARE USING PLAYER PERFORMANCE METRICS
-===================================================================
+# 🏀 NBA Award Voting Share Prediction
 
-PROJECT OVERVIEW
-----------------
-This project investigates whether advanced NBA player performance metrics can be used to predict award voting outcomes, specifically All-NBA / MVP vote share. Using historical player-season data, the project applies exploratory analysis, feature engineering, and regression-based modeling to estimate how voters allocate award points.
+## 📌 Project Overview
+This project builds a machine learning model to predict **NBA award voting share** using player performance metrics.
 
-The project is designed as an end-to-end applied data science case study, demonstrating the full workflow from data exploration through predictive modeling and interpretation.
+The goal is to understand how well **advanced analytics explain real-world voting outcomes** and to frame award voting as a **predictive ranking problem**.
 
-BUSINESS / ANALYTICAL OBJECTIVE
--------------------------------
-NBA awards voting reflects a combination of individual performance, efficiency metrics, team success, and narrative factors. This project frames voting as a predictive analytics problem:
+This project follows an end-to-end workflow:
+- Data exploration  
+- Feature engineering  
+- Model development  
+- Evaluation and interpretation  
 
-Given a player’s season performance metrics, can we estimate their share of award votes?
+---
 
-Potential applications of this type of modeling include:
-- Sports analytics and performance forecasting
-- Evaluating consistency and bias in voting outcomes
-- Ranking and comparison systems driven by performance data
-- Decision-support models influenced by human judgment
+## 🎯 Problem Framing
+NBA awards (MVP / All-NBA) are influenced by:
+- Player performance  
+- Advanced metrics  
+- Team success  
+- Narrative factors  
 
-DATASET DESCRIPTION
--------------------
-The dataset consists of player-season level NBA data, including traditional box score statistics, advanced efficiency metrics, team-related indicators, and historical voting outcomes.
+This project focuses on the measurable component:
 
-Dataset characteristics:
-- Approximately 12,700 player-season records
-- Each row represents a single player’s performance in a given season
+**Given a player’s season stats, can we predict their share of award votes?**
 
-Target variable:
-- points_share: proportion of total award votes received by the player
+---
 
-EXPLORATORY DATA ANALYSIS (EDA)
--------------------------------
-The EDA phase focused on:
-- Understanding the distribution of award vote share
-- Identifying correlations between advanced metrics and voting outcomes
-- Evaluating multicollinearity among predictors
-- Comparing statistical profiles of elite players versus the overall population
+## 📊 Dataset
+- ~12,700 player-season records  
+- Each row represents one player in one season  
 
-Key observations:
-- Advanced metrics such as PER, VORP, and BPM show strong relationships with vote share
-- Award voting outcomes are highly skewed, with a small number of players receiving the majority of votes
-- A large portion of players receive zero vote share, making prediction challenging
+### Target
+- `points_share` → proportion of total votes received  
 
-DATA PREPROCESSING & FEATURE ENGINEERING
-----------------------------------------
-The preprocessing phase prepared a model-ready dataset suitable for regression analysis.
+### Features
+- Traditional stats (PTS, AST, REB)  
+- Advanced metrics (PER, BPM, VORP)  
+- Efficiency metrics  
+- Team-related indicators  
 
-Key steps included:
-- Cleaning and validating numeric and categorical fields
-- Removing irrelevant or redundant columns
-- Selecting advanced performance metrics with strong predictive signal
-- Ensuring consistent data types and scaling where appropriate
+---
 
-The final feature set balances interpretability with predictive power.
+## 🔍 Exploratory Analysis
 
-MODELING APPROACH
------------------
-Several regression-based models were evaluated to predict player vote share.
+Key analysis steps:
+- Distribution of vote share  
+- Correlation between metrics and voting outcomes  
+- Multicollinearity checks  
+- Comparison of elite vs average players  
 
-Models used:
-- Linear Regression (baseline)
-- Regularized regression variants
-- Tree-based regression models (where applicable)
+### Key Findings
+- Vote share is **heavily skewed** (most players receive zero votes)  
+- A small group of elite players captures the majority of votes  
+- **PER, VORP, and BPM show strong relationships with vote share**  
+- Clear statistical separation between award-level players and the rest of the league  
 
-Evaluation strategy:
-- Train/test split
-- Regression metrics such as R-squared and RMSE
-- Feature importance analysis to interpret model behavior
+---
 
-KEY FINDINGS
-------------
-- Advanced performance metrics explain a meaningful portion of award vote share
-- Metrics such as PER and VORP consistently ranked among the strongest predictors
-- Linear models captured overall trends but struggled with extreme outliers (elite MVP-level seasons)
-- Voting outcomes appear largely aligned with advanced analytics, though narrative and team context likely contribute additional influence beyond pure statistics
+## 🛠️ Feature Engineering
 
-INSIGHTS & TAKEAWAYS
---------------------
-- Award voting can be partially modeled as a data-driven ranking problem
-- Advanced metrics serve as strong proxies for voter decision-making
-- Predicting exact vote share remains difficult due to narrative effects, media exposure, and team success factors not fully captured in individual statistics
+Steps taken:
+- Removed redundant / low-signal features  
+- Selected high-impact advanced metrics  
+- Cleaned and standardized numeric inputs  
+- Prepared a model-ready dataset  
 
-This highlights the limits of purely quantitative models in domains influenced by human judgment.
+Focus was placed on interpretability and predictive strength.
 
-FUTURE IMPROVEMENTS
--------------------
-Potential extensions of this work include:
-- Reframing the problem as classification (vote vs no vote)
-- Incorporating team success metrics more explicitly
-- Adding temporal or narrative-based features
-- Using ensemble or non-linear models for improved performance
-- Comparing predicted rankings to actual voting rankings
+---
 
-TOOLS & TECHNOLOGIES
---------------------
-- Python
-- Pandas and NumPy
-- Matplotlib and Seaborn
-- Scikit-learn
-- Jupyter Notebook
+## 🤖 Modeling
 
-REPOSITORY STRUCTURE
---------------------
-01_All_NBA_Vote_Share_EDA.ipynb  
-02_All_NBA_Vote_Share_Preprocessing.ipynb  
-03_All_NBA_Vote_Share_Modeling.ipynb  
+### Models Tested
+- Linear Regression (baseline)  
+- Regularized regression  
+- Tree-based regression models  
 
-PORTFOLIO CONTEXT
------------------
+### Evaluation
+- Train/test split  
+- Metrics:
+  - R²  
+  - RMSE  
+
+---
+
+## 📈 Results
+
+- Advanced metrics explain a meaningful portion of vote share variance  
+- **PER and VORP consistently rank as top predictors**  
+- Linear models capture overall trends but struggle with MVP-level outliers  
+
+### Interpretation
+Voting outcomes align closely with performance metrics, but are not fully explained by them due to narrative and contextual factors.
+
+---
+
+## 💡 Key Takeaways
+
+- Award voting can be modeled as a **data-driven ranking problem**  
+- Advanced metrics are strong proxies for voter behavior  
+- Non-quantifiable factors limit predictive accuracy  
+
+---
+
+## 🚀 Future Improvements
+- Reframe as classification (vote vs no vote)  
+- Add team-level features  
+- Incorporate narrative/time-based signals  
+- Use ensemble models  
+- Compare predicted vs actual rankings  
+
+---
+
+## 🧰 Tech Stack
+- Python  
+- Pandas, NumPy  
+- Matplotlib, Seaborn  
+- Scikit-learn  
+- Jupyter  
+
+---
+
+## 📁 Repository Structure
+- 01_all_nba_vote_share_exploratory_analysis.ipynb  
+- 02_all_nba_vote_share_preprocessing.ipynb  
+- 03_all_nba_vote_share_modeling.ipynb  
+
+---
+
+## 📌 Portfolio Context
+
 This project demonstrates:
-- End-to-end ownership of a predictive modeling problem
-- Strong data cleaning and feature engineering skills
-- Applied regression modeling and evaluation
-- Clear interpretation and communication of results
+- End-to-end ML workflow ownership  
+- Strong feature engineering  
+- Applied regression modeling  
+- Model interpretation  
 
-While the subject matter is sports analytics, the techniques used are directly transferable to marketing analytics, customer scoring models, predictive ranking systems, and other business decision-support applications.
+**Transferable to:**
+- Customer scoring  
+- Marketing analytics  
+- Ranking systems  
+- Decision-support modeling  
